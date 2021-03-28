@@ -16,6 +16,7 @@ import Banner from '../Shared/Banner';
 import CategoryFilter from './CategoryFilter';
 
 var { height } = Dimensions.get("window");
+
 export default function ProductContainer() {
     const [products, setproducts] = useState([]);
     const [productsFiltered, setProductsFiltered] = useState([]);
@@ -59,19 +60,15 @@ export default function ProductContainer() {
     //  Category
     const changeCategory = (ctg) => {
         {
-            console.warn("category", ctg);
             ctg === 'all'
                 ? [setProductsCtg(initialState), setActive(true)]
                 : [
                     setProductsCtg(
                         products.filter((i) => i.category.$oid == ctg),
-                        
                       ),setActive(true)
                 ];
         }
     }
-    console.warn('productsCtg--->', productsCtg);
-    console.warn('productId------->',products[2].category.$oid);
     return (
         <Container>
             <Header searchBar rounder>
@@ -93,8 +90,8 @@ export default function ProductContainer() {
                 />
             ) : (
                 <ScrollView>
-                    <View>
-                        <View>
+                        <View style={{ paddingBottom: 100, backgroundColor: "gainsboro" }}>
+                            <View>
                             <Banner />
                         </View>
                         <View>
@@ -118,7 +115,7 @@ export default function ProductContainer() {
                                 })}
                             </View>
                         ) : (
-                            <View style={styles.center, { height: height / 2 }}>
+                                    <View style={[styles.center]}>
                                 <Text>No products found</Text>
                             </View>
                         )}
@@ -156,7 +153,10 @@ const styles = StyleSheet.create({
         borderStyle: 'solid'
     },
     center: {
+        height: height / 2,
         justifyContent: 'center',
-        marginTop: 20
+        alignItems: 'center',
+        paddingTop: 100,
+        backgroundColor: "gainsboro"
     }
 });

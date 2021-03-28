@@ -4,7 +4,7 @@ import { StyleSheet, View, LogBox } from 'react-native';
 import Header from './Screens/Shared/Header'
 import ProductContainer from './Screens/Products/ProductContainer';
 //  To ignore the all warnings, not recommended during development...
-LogBox.ignoreAllLogs(false);
+LogBox.ignoreAllLogs(true);
 export default function App() {
   return (
     <View style={styles.container}>
