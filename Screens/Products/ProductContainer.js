@@ -17,7 +17,7 @@ import CategoryFilter from './CategoryFilter';
 
 var { height } = Dimensions.get("window");
 
-export default function ProductContainer() {
+export default function ProductContainer(props) {
     const [products, setproducts] = useState([]);
     const [productsFiltered, setProductsFiltered] = useState([]);
     const [focus, setFocus] = useState();
@@ -86,6 +86,7 @@ export default function ProductContainer() {
             </Header>
             { focus == true ? (
                 <SearchedProducts
+                    navigation={props.navigation}
                     productsFiltered={productsFiltered}
                 />
             ) : (
@@ -108,6 +109,7 @@ export default function ProductContainer() {
                                 {productsCtg.map((item) => {
                                     return (
                                         <ProductList
+                                            navigation={props.navigation}
                                             key={item.name}
                                             item={item}
                                         />
