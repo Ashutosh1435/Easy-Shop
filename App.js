@@ -1,25 +1,20 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View, LogBox } from 'react-native';
+import { LogBox } from 'react-native';
 import Header from './Screens/Shared/Header'
 import ProductContainer from './Screens/Products/ProductContainer';
+import { NavigationContainer } from '@react-navigation/native';
+import Main from './Navigators/Main';
 //  To ignore the all warnings, not recommended during development...
 LogBox.ignoreAllLogs(true);
 export default function App() {
   return (
-    <View style={styles.container}>
+    <NavigationContainer>
       <Header/>
-      <ProductContainer/>
-    </View>
+      <Main/>
+    </NavigationContainer>
+
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    // margin: 50
-  },
-});
+
